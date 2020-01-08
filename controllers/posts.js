@@ -25,7 +25,7 @@ insertRecord = (req, res) => {
     post.content = req.body.content;
     post.save((err, doc) => {
         if (!err)
-            res.redirect('post/list');
+            res.redirect('list');
         else {
             if(err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
@@ -40,7 +40,7 @@ insertRecord = (req, res) => {
 updateRecord = (req, res) => {
     Post.findOneAndUpdate({_id: req.body._id}, req.body, {new:true}, (err,doc) => {
         if(!err) {
-            res.redirect('post/list');
+            res.redirect('list');
         }
         else {
             if(err.name == 'ValidationError') {
@@ -100,7 +100,7 @@ router.get('/:id', ensureAuthenticated, (req, res) => {
 router.get('/delete/:id', ensureAuthenticated, (req, res) => {
     Post.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
-            res.redirect('/post/list');
+            res.redirect('/list');
         }
         else 
             console.log('Error: ' + err);

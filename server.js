@@ -45,5 +45,5 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT || PORT, function () {
         console.log('Api app started');
     });
-app.use('/post', postsController);
+app.use('/', postsController);
 app.use('/user', usersController);

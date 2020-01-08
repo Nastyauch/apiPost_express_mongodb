@@ -8,7 +8,7 @@ block main
         else 
             p= 'Create post' 
         a.ml-auto(href="/user/logout")= 'Logout'
-    form(method= "POST" action= "/post" autocomplete="off" )
+    form(method= "POST" action= "/" autocomplete="off" )
         input(type='hidden' name="_id" value=(undefined===post ? '' : post._id))
         div.form-group
             label(for='title') Title:
@@ -24,4 +24,4 @@ block main
             div.text-danger
                 p= (undefined===post ? '' : post.contentError)
         button.btn.btn-primary(type='submit') Submit
-        a.btn.btn-secondary(style='margin-left:10px' href='/post/list') All Posts
+        a.btn.btn-secondary(style='margin-left:10px' href='/list') All Posts

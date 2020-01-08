@@ -18,7 +18,7 @@ block main
                 td= post.categories
                 td= post.content
                 td
-                    a(class='btn' href='/post/edit/' + post._id) 
+                    a(class='btn' href='/edit/' + post._id) 
                         i(class="fas fa-pencil-alt")
-                    a(class='btn', href='/post/delete/' + post._id onclick= "return confirm('Are you sure to delete this record?');")
+                    a(class='btn', href='/delete/' + post._id onclick= "return confirm('Are you sure to delete this record?');")
                         i(class="fas fa-trash-alt")
