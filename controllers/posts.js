@@ -71,12 +71,12 @@ function handleValidationError(err, body){
     }
 }
 
-router.get('/list', ensureAuthenticated, (req, res) => {
+router.get('/list', (req, res) => {
     Post.find((err, docs) => {
         if (!err) {
             res.render("list", {
                 posts:docs,
-                //name: req.user.name
+                user: req.user
             })
         }
     })
