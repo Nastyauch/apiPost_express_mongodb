@@ -3,7 +3,7 @@ require('./db');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-
+const PORT = 3000;
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error');
     next();
 })
-app.listen(3000, function () {
+app.listen(process.env.PORT || PORT, function () {
         console.log('Api app started');
     });
 app.use('/post', postsController);
