@@ -1,0 +1,19 @@
+extends loyaut
+block title
+    | Posts
+block main
+    div.row.mt-5
+        div.col-md-6.m-auto
+            div.card.card-body
+                h1.text-center.mb-3= 'Login'
+                include messages.pug
+                form( action="/user/login" method="POST")
+                    div.form-group
+                        label(for="email")= 'Email'
+                        input(type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value= ( email != 'undefined' ? email : ''))
+                    div.form-group
+                        label(for="password")= 'Password'
+                        input(type="password" id="password" name="password" class="form-control" placeholder="Create Password" value= ( password != 'undefined' ? password : ''))
+                    button(type="submit" class="btn btn-primary btn-block")= 'Login'
+                p.lead.mt-4= 'No Account?' 
+                a(href="/user/register")= 'Register'

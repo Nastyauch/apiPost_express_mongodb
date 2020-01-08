@@ -1,0 +1,24 @@
+extends loyaut
+block title
+    | Posts
+block main
+    div.d-flex.p-2
+        p= 'View post' 
+        a.ml-auto(href="/user/logout")= 'Logout'
+    table.table.table-striped(style="background-color: #fff")
+        thead
+            tr
+                th= 'Title'
+                th= 'Categories'
+                th= 'Content'
+                th= 'Action'
+        tbody
+            tr
+                td= post.title
+                td= post.categories
+                td= post.content
+                td
+                    a(class='btn' href='/post/edit/' + post._id) 
+                        i(class="fas fa-pencil-alt")
+                    a(class='btn', href='/post/delete/' + post._id onclick= "return confirm('Are you sure to delete this record?');")
+                        i(class="fas fa-trash-alt")

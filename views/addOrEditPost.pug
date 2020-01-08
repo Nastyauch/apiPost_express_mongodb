@@ -1,0 +1,27 @@
+extends loyaut
+block title
+    | Posts create
+block main
+    div.d-flex.p-2
+        if post
+           p= 'Edit post'
+        else 
+            p= 'Create post' 
+        a.ml-auto(href="/user/logout")= 'Logout'
+    form(method= "POST" action= "/post" autocomplete="off" )
+        input(type='hidden' name="_id" value=(undefined===post ? '' : post._id))
+        div.form-group
+            label(for='title') Title:
+            input#title.form-control(type='text' placeholder='Title' name='title' value=(undefined===post ? '' : post.title))
+            div.text-danger
+                p= (undefined===post ? '' : post.titleError)
+            label(for='categories') Categories:
+            input#Categories.form-control(type='text' placeholder='Categories' name='categories' value=(undefined===post ? '' : post.categories))
+            div.text-danger
+                p= (undefined===post ? '' : post.categoriesError)
+            label(for='content') Content:
+            input#Content.form-control(type='text' name='content' placeholder='Content' value=(undefined===post ? '' : post.content))
+            div.text-danger
+                p= (undefined===post ? '' : post.contentError)
+        button.btn.btn-primary(type='submit') Submit
+        a.btn.btn-secondary(style='margin-left:10px' href='/post/list') All Posts
